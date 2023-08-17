@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VTSSite1.master.cs" Inherits="WebApplication1.VTSSite1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+
+    <style>
+           body {
+                  margin: 0;
+                  font-family: "Lato", sans-serif;
+                  background-image:url()
+
+                }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:black;
+            color:white;
+            text-align: center;
+            }
+         
+          .sidebar 
+          {
+               margin: 0;
+               margin-top:50px;
+               padding: 0;
+               width: 200px;
+               background-color:dimgray;
+               position: fixed;
+               height: 100%;
+               overflow: auto;
+              }
+
+          .sidebar a 
+          {
+          display: block;
+          color: black;
+           padding: 16px;
+          text-decoration: none;
+          }
+ 
+        .sidebar a.active
+        {
+          background-color: #04AA6D;
+          color: white;
+         }
+
+        .sticky 
+        {
+           position: fixed;
+            top: 0;
+            width: 100%;
+          }
+
+         .sticky + .content
+          {
+            padding-top: 30px;
+          }
+
+        .sidebar a:hover:not(.active)
+        {
+           background-color: #555;
+           color: white;
+        }
+
+        div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+        }
+
+       @media screen and (max-width: 700px) {
+       .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+       }
+       .sidebar a {float: left;}
+         div.content {margin-left: 0;}
+        }
+
+       @media screen and (max-width: 400px) 
+       {
+          .sidebar a {
+           text-align: center;
+         }
+      }
+   </style>
+ 
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+     <div class="sidebar">
+               <a href="AccountregistrationForm.aspx">Account Registration</a>
+                <a href="DeviceRegistrationform.aspx">Device Registration</a>
+                 <a href="GeoMap.aspx">Location</a>
+                  <a href="#about">About</a>
+                   <a href="GoogleMap.aspx">Map</a>
+                   </div>
+    <form id="form1" runat="server">
+         <div id="navbar" >
+         
+               
+            <nav class="navbar navbar-inverse">  
+                <a class="navbar-brand" href="https://www.nuevastech.com/"> 
+                 Vehicle Tracking System
+                 </a>
+                <ul class="nav navbar-nav">
+                 <li class="active"><a href="javascript:void(0)">Home</a></li>
+                 <li><a href="DeviceRegistrationform.aspx">Device Registration</a></li>
+                  <li><a href="vehicleregisterForm.aspx">Vehicle Registration</a><li>
+                   <li><a href="DeviceRegister">DeviceRegistration</a></li>
+                  <li><a href="Login.aspx">Login</a></li>
+                  </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
+                 </ul>
+                
+
+            </nav>
+        </div>
+        
+
+        <div style="margin-left:15%;height:100%;width:100%">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        
+        
+        <div> 
+
+             <footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer">© 2023 Copyright:
+     <a href="https://www.nuevastech.com/"> Nuevastech.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+      
+    </div>
+    </form>
+
+
+
+    <script>
+         window.onscroll = function() {myFunction()};
+
+           var navbar = document.getElementById("navbar");
+           var sticky = navbar.offsetTop;
+
+        function myFunction()
+        {
+             if (window.pageYOffset >= sticky)
+             {
+               navbar.classList.add("sticky")
+             }
+             else
+             {
+                navbar.classList.remove("sticky");
+              }
+        }
+    </script>
+</body>
+</html>
